@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/julianvmodesto
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.julianvmodesto.com
+  * I am julianvmodesto (https://keybase.io/julianvmodesto) on keybase.
+  * I have a public key with fingerprint 6B8A A485 E170 E3CD 604B  0301 A635 D3CD BB9A F852
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "010110f077685daeeee83ca40c01ae4d85ba66a23f1f5182d45d18de066b35da8c7b0a",
+            "fingerprint": "6b8aa485e170e3cd604b0301a635d3cdbb9af852",
+            "host": "keybase.io",
+            "key_id": "a635d3cdbb9af852",
+            "kid": "010110f077685daeeee83ca40c01ae4d85ba66a23f1f5182d45d18de066b35da8c7b0a",
+            "uid": "f3c558948b4744f10e263419b536d519",
+            "username": "julianvmodesto"
+        },
+        "revoke": {
+            "sig_ids": [
+                "c9aab7524000089ab5fb1954c328f23123ef2b0e5a84ac7395ee8f12741190020f"
+            ]
+        },
+        "service": {
+            "hostname": "www.julianvmodesto.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1471542923,
+    "expire_in": 157680000,
+    "prev": "9c9f3533c55236d4432f2ae963711668bcbf72a51fe03c607301bc392b8e9096",
+    "seqno": 12,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.56
+Comment: https://keybase.io/crypto
+
+yMOIAnicrZJ7UFRVHMcBV8ZFahGjSWQYuvGwkfCe+77rJDb4yElGEhsNxPU+zoUb
+sBf3LssrTAunkjXIki3QHorbNKZpiAkrKkj42NYyRweSarAkRQd2xgIGUzqXsT+a
+6c/OP3fOme/3c77ne3/dj0wLiQj10pcDvsbx1aH+LlNpyNrW0doqTNTkCsxahRXC
+qQ8skqHutBWqMmbFcIADgCs4yzIcLQsQLY6UBAqXcCBASuZoUWAYgSAVoNCAI2SK
+lgEnQ5xhRBIZOIkVcQFLxRTVng8dJQ7V7kRYRuQEgeJoCFgckpLM4JSIkwjJIBPa
+iyIvKBxNIGOBphsOFE4UdJimaugMbWxT8f5D/z/nLp3CKaRE0xxPcSLFUpQCcEgw
+JAV4kSYZmQa8IdShwy4UQ6R+pbRIFeyuYs0oUsOqUzEHdGmF0GhXV/NRdB2z5mIS
+LwgiSxMUjhbHCyKtiICnKYkkOIUgAUFChRBxSAscJUgsydPoEQogWAoAHscJXMHy
+EBvd61KlKbjR1cMMZWVlaf/OkSZpxShniUNzapJWhDQFTmeJbjXyOStKpkxQtD3E
+2UTVLqN/hhwu6NBVzY5ZAVJKTtXgA4oFNEXwBJmKwfIS1QFtqqGgUd/Gc4x7oAsh
+eYlXSJo0+iNQVxRFEgohQJ4hWQAYhhMlUWEJgQYKxEmJwVk0BaJE8oTIQR7nGcx4
+4Ca7htgEyinkIybq0C44Sx0Qq+7qXG8KCY0ICZ8eZgxzSIQ56p8Rt8ywTGb0pE+e
+bT+ak2MZP1990O/pDaY0RP7o3h2cHeDX7/l9ZlJlX/akL3HbkFmIvzvacJ6yXDuR
+/15HzOI7YTQ1sSC+/kqOf531+1ua5cDRpHB7d+TjVblpz1F6prvn7uJ3Xe7TSbFb
+o2/YLAvWpI5l+SpqzxR6h98OJIa3NdS3tQz33q+bmXWu+k5bEyHlSbMGjuV92edf
+NUf54mZNbHOTpb/up69bNtecgDFjn2FzaolVG5a9bHmD2hL8LviEa0dKAiPu4oab
+E1f85ov26m9q0YdbI5fdaybGvC/GLY9f+eTKzFkLr7z+w8VLX41e2h6gTcs/fmHF
+5sGC2T/n0mtNFeM55s+TfZrnmeOtccfTj+julOTYX4Ib/1i46IOuQ6+1HxtprxFG
+UuLqtEeFJcGDa5Z+GubqLR527n31bOdST+qzYR2VL6lZtqvjDUU2W0TbYHi1mtD5
+4bwH+/vKvQNathbtSmd8jcnfludmtJzzkEX+LYGdCc9n91qdjW/df+okPOQZuRXa
+/+uBPbu5hA1/TUQEcp/em397rj9r+zund07Lu2AqNO2iP2lqubd07GZMT7ae8X79
+1kB3lLnjcP+g1DVwcm7LkX15OcnglPubdZlL9kfNv7jxGpAf6DeuD3laYyovh8zY
+d4ELv2qeKLZUuifme7fNWz04XR03Xx9dFPbY7T+HzpxS+jeVf/Q3oz7mEA==
+=pSun
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/julianvmodesto
+
+==================================================================
+
