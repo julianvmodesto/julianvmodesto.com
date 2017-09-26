@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: julianvmodesto-web
+  labels:
+    app: julianvmodesto-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: julianvmodesto-web
+    spec:
+      volumes:
+      - name: caddyfile
+        configMap:
+          name: caddyfile
+      - name: certs
+        emptyDir: {}
+      - name: www
+        emptyDir: {}
+      # Bind :80 and :443
+      hostNetwork: true
+      containers:
+      - name: caddy
+        image: julianvmodesto/caddy
+        imagePullPolicy: Always
+        env:
+        - name: CLOUDFLARE_EMAIL
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare
+              key: email
+        - name: CLOUDFLARE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare
+              key: api_key
+        ports:
+        - name: default
+          containerPort: 2015
+          hostPort: 2015
+        - name: http
+          containerPort: 80
+          hostPort: 80
+        - name: https
+          containerPort: 443
+          hostPort: 443
+        volumeMounts:
+          # Mount Caddyfile only, not all of /etc
+        - name: caddyfile
+          mountPath: /etc/Caddyfile
+          subPath: Caddyfile
+          # Save certificates on Pod restart
+        - name: certs
+          mountPath: /root
+        - name: www
+          mountPath: /var/www/julianvmodesto.com
+

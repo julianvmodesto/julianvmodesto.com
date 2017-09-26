@@ -1,47 +1,38 @@
 julianvmodesto.com {
-    redir https://www.julianvmodesto.com
+  redir https://www.julianvmodesto.com
+
+  tls julianvmodesto@gmail.com {
+    dns cloudflare
+  }
 }
 
 www.julianvmodesto.com {
-    root /var/www/julianvmodesto.com
+  tls julianvmodesto@gmail.com {
+    dns cloudflare
+  }
 
-    tls julianvmodesto@gmail.com
+  git github.com/julianvmodesto/julianvmodesto.com /var/www/julianvmodesto.com
+  root /var/www/julianvmodesto.com/static
 
-    git {
-        repo github.com/julianvmodesto/julianvmodesto.com
-        branch master
-        path ./ # clone path relative to root
-        interval 3600 # git clone every 3600 seconds = 1 hour
-    }
+  gzip
 
-    gzip
+  # Add some security headers to all pages
+  # https://caddyserver.com/docs/header
+  header / {
+    # Enable HTTP Strict Transport Security (HSTS) to force clients to always
+    # connect via HTTPS (do not use if only testing)
+    Strict-Transport-Security "max-age=31536000;"
+    # Enable cross-site filter (XSS) and tell browser to block detected attacks
+    X-XSS-Protection "1; mode=block"
+    # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
+    X-Content-Type-Options "nosniff"
+    # Disallow the site to be rendered within a frame (clickjacking protection)
+    X-Frame-Options "DENY"
 
-    log /var/log/caddy/julianvmodesto.com/access.log {
-        rotate {
-                size 100 # Rotate after 100 MB
-                age  14  # Keep log files for 14 days
-                keep 10  # Keep at most 10 log files
-            }
-        }
-    }
-
-    # Add some security headers to all pages
-    # https://caddyserver.com/docs/header
-    header / {
-        # Enable HTTP Strict Transport Security (HSTS) to force clients to always
-        # connect via HTTPS (do not use if only testing)
-        Strict-Transport-Security "max-age=31536000;"
-        # Enable cross-site filter (XSS) and tell browser to block detected attacks
-        X-XSS-Protection "1; mode=block"
-        # Prevent some browsers from MIME-sniffing a response away from the declared Content-Type
-        X-Content-Type-Options "nosniff"
-        # Disallow the site to be rendered within a frame (clickjacking protection)
-        X-Frame-Options "DENY"
-
-        # See:
-        # https://forum.caddyserver.com/t/security-headers/126
-        # https://gist.github.com/plentz/6737338
-        # https://mozilla.github.io/server-side-tls/ssl-config-generator/
-        # https://www.keycdn.com/blog/http-security-headers/
-    }
+    # See:
+    # https://forum.caddyserver.com/t/security-headers/126
+    # https://gist.github.com/plentz/6737338
+    # https://mozilla.github.io/server-side-tls/ssl-config-generator/
+    # https://www.keycdn.com/blog/http-security-headers/
+  }
 }
