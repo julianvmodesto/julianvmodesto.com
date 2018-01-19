@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudflare-warp-controller
+  labels:
+    run: cloudflare-warp-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: cloudflare-warp-controller
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: cloudflare-warp-controller
+    spec:
+      serviceAccount: cloudflare-warp
+      serviceAccountName: cloudflare-warp
+      containers:
+      - name: warp-controller
+        image: quay.io/stackpoint/warp-controller:beta
+        imagePullPolicy: Always
+        command:
+        - /warp-controller
+        - -v=6
+        volumeMounts:
+        - name: cloudflare-warp-cert
+          mountPath: /etc/cloudflare-warp
+          readOnly: true
+      volumes:
+        - name: cloudflare-warp-cert
+          secret:
+            secretName: cloudflare-warp-cert
+
