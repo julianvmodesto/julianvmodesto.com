@@ -6,7 +6,7 @@ push_image:
 	docker push julianvmodesto/caddy
 
 secret:
-	kubectl create secret generic cloudflare-warp-cert --from-file=cert.pem -o yaml --dry-run | kubectl replace -f -
+	kubectl create secret generic cloudflare-warp-cert --from-file=cert.pem=cert.pem -o yaml --dry-run | kubectl create -f -
 
 configmap:
 	kubectl create configmap caddyfile --from-file=Caddyfile --dry-run -o yaml \
