@@ -20,25 +20,10 @@ spec:
       - name: caddyfile
         configMap:
           name: caddyfile
-      - name: certs
-        emptyDir: {}
-      - name: www
-        emptyDir: {}
       containers:
       - name: caddy
         image: julianvmodesto/caddy
         imagePullPolicy: Always
-        env:
-        - name: CLOUDFLARE_EMAIL
-          valueFrom:
-            secretKeyRef:
-              name: cloudflare
-              key: email
-        - name: CLOUDFLARE_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: cloudflare
-              key: api_key
         ports:
         - name: http
           containerPort: 8080
@@ -47,9 +32,4 @@ spec:
         - name: caddyfile
           mountPath: /etc/Caddyfile
           subPath: Caddyfile
-          # Save certificates on Pod restart
-        - name: certs
-          mountPath: /root
-        - name: www
-          mountPath: /var/www/julianvmodesto.com
 
