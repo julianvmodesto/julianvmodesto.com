@@ -10,3 +10,7 @@ www.julianvmodesto.com:80 {
 
   gzip
 }
+
+:8888 {
+  status 200 /
+}
