@@ -9,6 +9,8 @@ www.julianvmodesto.com:80 {
   root /srv
 
   gzip
+
+  cache
 }
 
 :8888 {
