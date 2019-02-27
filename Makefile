@@ -1,14 +1,10 @@
 
 bake_image:
-	docker build -t julianvmodesto/caddy .
+	docker build -t gcr.io/julian-modesto/caddy .
 
 push_image:
-	docker push julianvmodesto/caddy
+	docker push gcr.io/julian-modesto/caddy
 
-configmap:
-	kubectl create configmap caddyfile --from-file=Caddyfile --dry-run -o yaml \
-	  | kubectl apply -f -
-
-deploy: bake_image push_image configmap
-	kubectl apply -f kubernetes/ --recursive
+deploy: bake_image push_image
+	kustomize build | kubectl apply -f -
 

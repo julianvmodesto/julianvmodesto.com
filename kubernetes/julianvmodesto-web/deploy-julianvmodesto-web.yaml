@@ -5,7 +5,7 @@ metadata:
   labels:
     app: julianvmodesto-web
 spec:
-  replicas: 1
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -22,12 +22,11 @@ spec:
           name: caddyfile
       containers:
       - name: caddy
-        image: julianvmodesto/caddy
+        image: gcr.io/julian-modesto/caddy
         imagePullPolicy: Always
         ports:
         - name: http
           containerPort: 80
-          hostPort: 80
         - name: health
           containerPort: 8888
         livenessProbe:

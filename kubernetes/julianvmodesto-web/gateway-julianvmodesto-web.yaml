@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  namespace: istio-system
+  name: julianvmodesto-web
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - julianmodesto.com
+    - '*.julianmodesto.com'
+    - julianvmodesto.com
+    - '*.julianvmodesto.com'
+    port:
+      name: http
+      number: 80
+      protocol: HTTP2

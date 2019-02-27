@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app: julianvmodesto-web
+resources:
+- kubernetes/julianvmodesto-web/gateway-julianvmodesto-web.yaml
+- kubernetes/julianvmodesto-web/svc-julianvmodesto-web.yaml
+- kubernetes/julianvmodesto-web/virtualservice-julianvmodesto-web.yaml
+- kubernetes/julianvmodesto-web/deploy-julianvmodesto-web.yaml
+configMapGenerator:
+- name: caddyfile
+  files:
+  - Caddyfile

@@ -1,9 +1,16 @@
+*.julianmodesto.com:80 {
+  redir https://www.julianvmodesto.com
+}
+
+julianmodesto.com:80 {
+  redir https://www.julianvmodesto.com
+}
 
 julianvmodesto.com:80 {
   redir https://www.julianvmodesto.com
 }
 
-www.julianvmodesto.com:80 {
+*.julianvmodesto.com:80 {
   tls off
 
   root /srv

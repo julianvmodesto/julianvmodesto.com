@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: istio-system
+  name: julianvmodesto-web
+spec:
+  hosts:
+  - julianmodesto.com
+  - '*.julianmodesto.com'
+  - julianvmodesto.com
+  - '*.julianvmodesto.com'
+  gateways:
+  - julianvmodesto-web
+  http:
+  - route:
+    - destination:
+        host: julianvmodesto-web.default.svc.cluster.local
