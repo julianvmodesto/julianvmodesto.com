@@ -22,7 +22,7 @@ spec:
           name: caddyfile
       containers:
       - name: caddy
-        image: gcr.io/julian-modesto/caddy
+        image: gcr.io/julian-modesto/github.com/julianvmodesto/julianvmodesto.com
         imagePullPolicy: Always
         ports:
         - name: http
