@@ -1,24 +1,41 @@
+{
+  email julianvmodesto@gmail.com
+}
+
 *.julianmodesto.com:80 {
   redir https://www.julianvmodesto.com
+  log {
+    output discard
+  }
 }
 
 julianmodesto.com:80 {
   redir https://www.julianvmodesto.com
+  log {
+    output discard
+  }
 }
 
 julianvmodesto.com:80 {
   redir https://www.julianvmodesto.com
+  log {
+    output discard
+  }
 }
 
 *.julianvmodesto.com:80 {
-  tls off
-
   root * /site
   file_server
+  encode zstd gzip
 
-  encode gzip
+  log {
+    output stdout
+  }
 }
 
 :8888 {
   respond / 200
+  log {
+    output discard
+  }
 }

@@ -7,6 +7,8 @@ resources:
 - kubernetes/julianvmodesto-web/svc-julianvmodesto-web.yaml
 - kubernetes/julianvmodesto-web/virtualservice-julianvmodesto-web.yaml
 - kubernetes/julianvmodesto-web/deploy-julianvmodesto-web.yaml
+- kubernetes/julianvmodesto-web/pdb-julianvmodesto-web.yaml
+- kubernetes/julianvmodesto-web/vpa-julianvmodesto-web.yaml
 configMapGenerator:
 - files:
   - Caddyfile

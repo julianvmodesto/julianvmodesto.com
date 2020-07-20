@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: julianvmodesto-web
@@ -6,40 +6,54 @@ metadata:
     app: julianvmodesto-web
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: julianvmodesto-web
   strategy:
-    type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: julianvmodesto-web
     spec:
+      containers:
+      - name: caddy
+        image: gcr.io/julian-modesto/caddy
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: health
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        - containerPort: 8888
+          name: health
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: health
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        volumeMounts:
+        - mountPath: /etc/caddy/Caddyfile
+          name: caddyfile
+          subPath: Caddyfile
       volumes:
       - name: caddyfile
         configMap:
           name: caddyfile
-      containers:
-      - name: caddy
-        image: gcr.io/julian-modesto/github.com/julianvmodesto/julianvmodesto.com
-        imagePullPolicy: Always
-        ports:
-        - name: http
-          containerPort: 80
-        - name: health
-          containerPort: 8888
-        livenessProbe:
-          httpGet:
-            path: /
-            port: health
-        readinessProbe:
-          httpGet:
-            path: /
-            port: health
-        volumeMounts:
-          # Mount Caddyfile only, not all of /etc
-        - name: caddyfile
-          mountPath: /etc/caddy/Caddyfile
-          subPath: Caddyfile
-
+          defaultMode: 420
