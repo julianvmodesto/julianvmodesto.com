@@ -8,6 +8,6 @@ resources:
 - kubernetes/julianvmodesto-web/virtualservice-julianvmodesto-web.yaml
 - kubernetes/julianvmodesto-web/deploy-julianvmodesto-web.yaml
 configMapGenerator:
-- name: caddyfile
-  files:
+- files:
   - Caddyfile
+  name: caddyfile

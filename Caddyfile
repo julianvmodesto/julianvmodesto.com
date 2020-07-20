@@ -13,13 +13,12 @@ julianvmodesto.com:80 {
 *.julianvmodesto.com:80 {
   tls off
 
-  root /srv
+  root * /site
+  file_server
 
-  gzip
-
-  cache
+  encode gzip
 }
 
 :8888 {
-  status 200 /
+  respond / 200
 }

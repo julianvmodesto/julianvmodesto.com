@@ -40,6 +40,6 @@ spec:
         volumeMounts:
           # Mount Caddyfile only, not all of /etc
         - name: caddyfile
-          mountPath: /etc/Caddyfile
+          mountPath: /etc/caddy/Caddyfile
           subPath: Caddyfile
 
