@@ -1,29 +1,10 @@
 {
   email julianvmodesto@gmail.com
+  http_port {$PORT}
+  auto_https off
 }
 
-*.julianmodesto.com:80 {
-  redir https://www.julianvmodesto.com
-  log {
-    output discard
-  }
-}
-
-julianmodesto.com:80 {
-  redir https://www.julianvmodesto.com
-  log {
-    output discard
-  }
-}
-
-julianvmodesto.com:80 {
-  redir https://www.julianvmodesto.com
-  log {
-    output discard
-  }
-}
-
-*.julianvmodesto.com:80 {
+:{$PORT} {
   root * /site
   file_server
   encode zstd gzip
@@ -31,6 +12,12 @@ julianvmodesto.com:80 {
   log {
     output stdout
   }
+
+  @redir_hosts {
+    host julianvmodesto.dev www.julianvmodesto.dev julianmodesto.com www.julianmodesto.com julianvmodesto.com
+  }
+
+  redir @redir_hosts https://www.julianvmodesto.com
 }
 
 :8888 {

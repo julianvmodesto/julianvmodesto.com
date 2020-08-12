@@ -10,39 +10,46 @@
     <meta name="language" content="English"/>
   </head>
   <body>
-    <main>
-      <section>
-        hi, i'm julian
-        <ul>
-          <li><a href="https://twitter.com/julianvmodesto">twitter</a></li>
-          <li><a href="https://github.com/julianvmodesto">github</a></li>
-          <li><a href="https://stackoverflow.com/story/julianvmodesto">stackoverflow</a></li>
-          <li><a href="https://instagram.com/julianvmodesto/">instagram</a></li>
-          <li><a href="https://www.linkedin.com/in/julianvmodesto">linkedin</a></li>
-          <li><a href="https://medium.com/@julianvmodesto">medium</a></li>
-          <li><a href="https://www.facebook.com/julianvmodesto">facebook</a></li>
-          <li><a href="https://open.spotify.com/user/em37ib">spotify</a></li>
-          <li><a href="https://www.yelp.com/user_details?userid=vDedhjOr4XJeVTVZbdy_RQ">yelp</a></li>
-          <li><a href="https://www.last.fm/user/jave8u">last.fm</a></li>
-          <li><a href="https://getpocket.com/@julianvmodesto">pocket</a></li>
-          <li><a href="https://www.goodreads.com/julianvmodesto">goodreads</a></li>
-          <li><a href="mailto:julianvmodesto@gmail.com">email</a></li>
-        </ul>
-      </section>
-    </main>
+    <div id="container">
+      <main>
+        <section>
+          hi, i'm julian
+          <ul>
+            <li><a href="https://twitter.com/julianvmodesto">twitter</a></li>
+            <li><a href="https://github.com/julianvmodesto">github</a></li>
+            <li><a href="https://stackoverflow.com/story/julianvmodesto">stackoverflow</a></li>
+            <li><a href="https://instagram.com/julianvmodesto/">instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/julianvmodesto">linkedin</a></li>
+            <li><a href="https://medium.com/@julianvmodesto">medium</a></li>
+            <li><a href="https://www.facebook.com/julianvmodesto">facebook</a></li>
+            <li><a href="https://open.spotify.com/user/em37ib">spotify</a></li>
+            <li><a href="https://www.yelp.com/user_details?userid=vDedhjOr4XJeVTVZbdy_RQ">yelp</a></li>
+            <li><a href="https://www.last.fm/user/jave8u">last.fm</a></li>
+            <li><a href="https://getpocket.com/@julianvmodesto">pocket</a></li>
+            <li><a href="https://www.goodreads.com/julianvmodesto">goodreads</a></li>
+            <li><a href="mailto:julianvmodesto@gmail.com">email</a></li>
+          </ul>
+        </section>
+      </main>
+    </div>
   </body>
   <footer>
     <style>
       html,
-      body {
+      body,
+      #container {
         height: 100%;
         width: 100%
       }
 
+      #container,
       main {
         display: flex;
         align-items: center;
         justify-content: center;
+      }
+
+      main {
         font: Georgia, serif;
         font-size: 2em;
       }
