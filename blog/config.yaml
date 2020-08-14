@@ -1,0 +1,6 @@
+baseURL: "//www.julianvmodesto.com/blog/"
+relativeURLs: true
+canonifyURLs: true
+languagecode: en-us
+title: julianvmodesto
+theme: ezhil

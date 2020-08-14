@@ -6,12 +6,21 @@ steps:
     args:
     - validate
     id: Validate
-  - name: 'gcr.io/kaniko-project/executor:latest'
+  - name: gcr.io/cloud-builders/docker
     args:
-    - '--destination=$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
-    - '--cache=true'
-    - '--cache-ttl=6h'
+      - build
+      - '--no-cache'
+      - '-t'
+      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
+      - .
+      - '-f'
+      - Dockerfile
     id: Build
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
+    id: Push
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     args:
       - run
@@ -32,6 +41,8 @@ substitutions:
   _DEPLOY_REGION: us-central1
   _GCR_HOSTNAME: us.gcr.io
   _PLATFORM: managed
+images:
+  - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
