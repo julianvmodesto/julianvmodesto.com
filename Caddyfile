@@ -13,10 +13,7 @@
   redir /blog/categories /blog/categories/
   redir /blog/page /blog/page/
   redir /blog/tags /blog/tags/
-  rewrite /blog/categories/* /blog/categories/index.html
-  rewrite /blog/page/* /blog/page/index.html
-  rewrite /blog/tags/* /blog/tags/index.html
-  rewrite /blog/* /blog/index.html
+  redir /blog /blog/
 
   encode zstd gzip
 
