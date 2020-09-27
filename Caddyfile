@@ -21,6 +21,19 @@
     output stdout
   }
 
+  header Cache-Control max-age=3600
+
+  header {
+    # disable clients from sniffing the media type
+    X-Content-Type-Options nosniff
+	
+    # clickjacking protection
+    X-Frame-Options DENY
+
+    # keep referrer data off of HTTP connections
+    Referrer-Policy no-referrer-when-downgrade
+  }
+
   @redir_hosts {
     host julianvmodesto.dev www.julianvmodesto.dev julianmodesto.com www.julianmodesto.com julianvmodesto.com
   }
