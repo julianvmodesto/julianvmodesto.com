@@ -9,6 +9,7 @@
   file_server
 
   try_files {path} {path}/
+  rewrite /now /blog/now
 
   encode zstd gzip
 
