@@ -8,12 +8,7 @@
   root * /site
   file_server
 
-  try_files {path}.html {path}
-
-  redir /blog/categories /blog/categories/
-  redir /blog/page /blog/page/
-  redir /blog/tags /blog/tags/
-  redir /blog /blog/
+  try_files {path} {path}/
 
   encode zstd gzip
 
