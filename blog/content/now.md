@@ -5,13 +5,13 @@ description: |
   A nownownow page.
 ---
 
-_(This is a [now](http://nownownow.com/about) page.)_
+_This is a [now](http://nownownow.com/about) page._
 
 ## What I'm reading
 
 The last book I read was [*Giovanni's Room* by James Baldwin](https://www.goodreads.com/book/show/38462.Giovanni_s_Room). This is the first book I've read by James Baldwin. He's a beautiful writer and I'm excited to read more, like [*If Beale Street Could Talk*](https://www.goodreads.com/book/show/38463.If_Beale_Street_Could_Talk).
 
-Follow me on GoodReads at goodreads.com/julianvmodesto.
+Follow me on GoodReads at [goodreads.com/julianvmodesto](https://www.goodreads.com/julianvmodesto).
 
 ### Books I'm still reading
 
@@ -27,5 +27,5 @@ Follow me on GoodReads at goodreads.com/julianvmodesto.
 ### My favorite reads of 2021
 
 - [*Giovanni's Room* by James Baldwin](https://www.goodreads.com/book/show/38462.Giovanni_s_Room)
-- [*The Vanishing HAlf* by Brit Bennett](https://www.goodreads.com/book/show/52195151-the-vanishing-half)
+- [*The Vanishing Half* by Brit Bennett](https://www.goodreads.com/book/show/52195151-the-vanishing-half)
 - [*The New Jim Crow: Mass Incarceration in the Age of Colorblindness* by Michelle Alexander](https://www.goodreads.com/book/show/53498439-the-new-jim-crow)
