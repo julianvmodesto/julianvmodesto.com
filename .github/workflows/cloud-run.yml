@@ -15,6 +15,10 @@ jobs:
   setup-build-deploy:
     name: Setup, Build, and Deploy
     runs-on: ubuntu-latest
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: 'read'
+      id-token: 'write'
 
     steps:
     - name: Checkout
