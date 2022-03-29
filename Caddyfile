@@ -34,7 +34,7 @@
   }
   redir @redir_hosts https://www.julianvmodesto.com{uri}
   
-  rewrite /now /site/blog/now/index.html
+  rewrite /now /blog/now/index.html
 }
 
 :8888 {
