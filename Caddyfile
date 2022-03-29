@@ -5,17 +5,22 @@
 }
 
 :{$PORT} {
-  root * /site
-  file_server
-
-  try_files {path} {path}/
+  handle /now {
+    file_server /site/blog/now/index.html
+  }
+  
+  handle {
+    root * /site
+    file_server
+    try_files {path} {path}/
+  }
 
   encode zstd gzip
 
   log {
     output stdout
   }
-
+  
   header Cache-Control max-age=3600
 
   header {
@@ -33,8 +38,6 @@
     host julianvmodesto.dev www.julianvmodesto.dev julianmodesto.com www.julianmodesto.com julianvmodesto.com
   }
   redir @redir_hosts https://www.julianvmodesto.com{uri}
-  
-  rewrite /now /blog/now/index.html
 }
 
 :8888 {
