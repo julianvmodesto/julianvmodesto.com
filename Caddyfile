@@ -9,7 +9,8 @@
   file_server
 
   try_files {path} {path}/
-  rewrite /now /blog/now
+  rewrite /now /blog/now/index.html
+  rewrite /blog/ /blog
 
   encode zstd gzip
 
