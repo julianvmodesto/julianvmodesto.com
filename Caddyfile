@@ -5,12 +5,14 @@
 }
 
 :{$PORT} {
+  rewrite /now /blog/now/index.html
+  rewrite /blog/ /blog
+  rewrite /blog/{path}/ /blog/{path}
+  
   root * /site
   file_server
 
   try_files {path} {path}/
-  rewrite /now /blog/now/index.html
-  rewrite /blog/ /blog
 
   encode zstd gzip
 
