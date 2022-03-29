@@ -22,10 +22,15 @@ jobs:
       with:
         submodules: recursive
 
+    - name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v0'
+      with:
+        workload_identity_provider: 'projects/307322809497/locations/global/workloadIdentityPools/pool-0/providers/github-actions'
+        service_account: 'julianvmodesto-web-run-release@julian-modesto.iam.gserviceaccount.com'
+        
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@v0
       with:
-        service_account_key: ${{ secrets.RUN_SA_KEY }}
         project_id: julian-modesto
 
     # Build and push image to Google Container Registry
@@ -34,6 +39,7 @@ jobs:
         gcloud builds submit \
           --quiet \
           --tag "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA"
+          
     # Deploy image to Cloud Run
     - name: Deploy
       run: |-
