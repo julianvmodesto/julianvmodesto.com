@@ -5,6 +5,10 @@
 }
 
 :{$PORT} {
+  @redir_hosts {
+    host julianvmodesto.dev www.julianvmodesto.dev julianmodesto.com www.julianmodesto.com julianvmodesto.com
+  }
+  redir @redir_hosts https://www.julianvmodesto.com{uri}
 
   root * /site
   file_server
@@ -12,14 +16,8 @@
   rewrite /now /blog/now/index.html
   # try_files is a rewrite rule
   try_files {path} {path}/
-
-    
-  encode zstd gzip
-
-  log {
-    output stdout
-  }
   
+  encode zstd gzip
   header Cache-Control max-age=3600
 
   header {
@@ -32,11 +30,13 @@
     # keep referrer data off of HTTP connections
     Referrer-Policy no-referrer-when-downgrade
   }
-
-  @redir_hosts {
-    host julianvmodesto.dev www.julianvmodesto.dev julianmodesto.com www.julianmodesto.com julianvmodesto.com
+  
+  log {
+    output stdout
   }
-  redir @redir_hosts https://www.julianvmodesto.com{uri}
+  tracing {
+    span www
+  }
 }
 
 :8888 {
