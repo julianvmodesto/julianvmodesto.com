@@ -5,16 +5,15 @@
 }
 
 :{$PORT} {
-  handle /now {
-    file_server /site/blog/now/index.html
-  }
-  
-  handle {
-    root * /site
-    file_server
-    try_files {path} {path}/
-  }
 
+  root * /site
+  file_server
+  
+  rewrite /now /blog/now/index.html
+  # try_files is a rewrite rule
+  try_files {path} {path}/
+
+    
   encode zstd gzip
 
   log {
