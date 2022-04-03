@@ -34,9 +34,6 @@
   log {
     output stdout
   }
-  tracing {
-    span www
-  }
 }
 
 :8888 {
